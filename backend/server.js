@@ -24,8 +24,8 @@ app.get("/", (req, res) => {
   res.send("Server is ready");
 });
 
-connect();
-
-server.listen(PORT, () => {
-  console.log(`server is running at Port ${PORT}`);
+connect().then(() => {
+  server.listen(PORT, () => {
+    console.log(`server is running at Port ${PORT}`);
+  });
 });
