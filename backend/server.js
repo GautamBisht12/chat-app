@@ -7,10 +7,10 @@ import messageRoutes from "./routes/message.routes.js";
 import usersRoutes from "./routes/users.routes.js";
 
 import { connect } from "./db/connect.js";
+import { app, server } from "./socket/socket.js";
 
 dotenv.config();
 
-const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
@@ -24,8 +24,8 @@ app.get("/", (req, res) => {
   res.send("Server is ready");
 });
 
-connect().then(() => {
-  app.listen(PORT, () => {
-    console.log(`server is running at Port ${PORT}`);
-  });
+connect();
+
+server.listen(PORT, () => {
+  console.log(`server is running at Port ${PORT}`);
 });
