@@ -29,7 +29,7 @@ const MessageInput = () => {
             className="absolute inset-y-0 end-0 flex items-center pe-3"
           >
             {loading ? (
-              <span className="loading loading-spinner"></span>
+              <span className="loading loading-spinner text-white"></span>
             ) : (
               <BsSend color="white" />
             )}
